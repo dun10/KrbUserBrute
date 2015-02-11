@@ -75,7 +75,8 @@ class Metasploit4 < Msf::Auxiliary
       pa_data: pre_auth
      )
 
-      print_warning("#{peer} - #{user} - #{warn_error(res)}") if res.msg_type == Rex::Proto::Kerberos::Model::KRB_ERROR
+      #uncomment line below to show Kerb Error output
+      #print_warning("#{peer} - #{user} - #{warn_error(res)}") if res.msg_type == Rex::Proto::Kerberos::Model::KRB_ERROR
       if ("#{warn_error(res)}") == "KDC_ERR_PREAUTH_FAILED - Pre-authentication information was invalid"
         print_good("#{peer} - #{user} is a Valid User")
       elsif ("#{warn_error(res)}") == "KDC_ERR_CLIENT_REVOKED - Clients credentials have been revoked"
